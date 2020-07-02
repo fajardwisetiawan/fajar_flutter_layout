@@ -835,6 +835,9 @@ class HomeScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.blue[800]),
                             ),
+                            SizedBox(
+                              height: 3.0,
+                            ),
                             Text(
                               "SYAFAAT AGRI",
                               style: TextStyle(
@@ -842,6 +845,9 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
+                            ),
+                            SizedBox(
+                              height: 3.0,
                             ),
                             Text(
                               "PT ADINASTI TEKNIK PERKASA",
@@ -978,6 +984,9 @@ class HomeScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.blue[800]),
                             ),
+                            SizedBox(
+                              height: 3.0,
+                            ),
                             Text(
                               "SYAFAAT AGRI",
                               style: TextStyle(
@@ -985,6 +994,9 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
+                            ),
+                            SizedBox(
+                              height: 3.0,
                             ),
                             Text(
                               "PT ADINASTI TEKNIK PERKASA",
@@ -1121,6 +1133,9 @@ class HomeScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.blue[800]),
                             ),
+                            SizedBox(
+                              height: 3.0,
+                            ),
                             Text(
                               "SYAFAAT AGRI",
                               style: TextStyle(
@@ -1128,6 +1143,9 @@ class HomeScreen extends StatelessWidget {
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
                               ),
+                            ),
+                            SizedBox(
+                              height: 3.0,
                             ),
                             Text(
                               "PT ADINASTI TEKNIK PERKASA",
