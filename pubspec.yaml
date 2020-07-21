@@ -31,6 +31,8 @@ dependencies:
   carousel_slider: ^2.2.1
   http: ^0.12.1
   percent_indicator: ^2.1.5
+  flutter_bloc: ^4.0.1  
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +60,11 @@ flutter:
    - assets/images/wa.png
    - assets/images/list1.jpg
    - assets/images/
+
+  fonts:
+  - family: OpenSans
+    fonts:
+      - asset: assets/fonts/OpenSans.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

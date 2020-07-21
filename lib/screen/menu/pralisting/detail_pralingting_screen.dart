@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:kerjaansatu/screen/menu/bantuan/ajukan_pertanyaan_screen.dart';
-import 'package:kerjaansatu/screen/menu/bantuan/riwayat_pertanyaan_screen.dart';
+import 'package:kerjaansatu/screen/menu/pralisting/deskripsi_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:kerjaansatu/utilities/constants.dart';
 
-class SliverWithTabBar extends StatefulWidget {
+class DetaiPralistingScreen extends StatefulWidget {
   @override
-  _SliverWithTabBarState createState() => _SliverWithTabBarState();
+  _DetaiPralistingScreenState createState() => _DetaiPralistingScreenState();
 }
 
-class _SliverWithTabBarState extends State<SliverWithTabBar>
+class _DetaiPralistingScreenState extends State<DetaiPralistingScreen>
     with SingleTickerProviderStateMixin {
   TabController controller;
+  
 
   @override
   void initState() {
     super.initState();
-    controller = TabController(length: 3, vsync: this);
+    controller = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -325,25 +327,97 @@ class _SliverWithTabBarState extends State<SliverWithTabBar>
               ),
               expandedHeight: 510.0,
               bottom: TabBar(
-                indicatorColor: Colors.black,
-                labelColor: Colors.black,
+                isScrollable: true,
+                indicatorColor: Colors.redAccent[700],
+                labelColor: Colors.redAccent[700],
+                unselectedLabelColor: Colors.grey,
                 tabs: [
-                  Tab(text: 'POSTS'),
-                  Tab(text: 'DETAILS'),
-                  Tab(text: 'FOLLOWERS'),
+                  Tab(text: 'Deskripsi'),
+                  Tab(text: 'Identitas Calon Penerbit'),
+                  Tab(text: 'Informasi Finansial'),
+                  Tab(text: 'Informasi Non Finansial'),
+                  Tab(text: 'Lokasi'),
                 ],
                 controller: controller,
               ),
             )
           ];
         },
-        body: new TabBarView(
+        body: TabBarView(
           controller: controller,
           children: <Widget>[
+            new DeskripsiScreen(),
             new AjukanPertanyaanScreen(),
-            new RiwayatPertanyaanScreen(),
-            new RiwayatPertanyaanScreen(),
+            new AjukanPertanyaanScreen(),
+            new AjukanPertanyaanScreen(),
+            new AjukanPertanyaanScreen(),
           ],
+        ),
+      ),
+      bottomSheet: Container(
+        height: 80.0,
+        color: Colors.white,
+        child: Padding(
+          padding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 15.0),
+          child: Row(
+            children: <Widget>[
+              Flexible(
+                child: TextField(
+                  keyboardType: TextInputType.text,
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontFamily: 'OpenSans',
+                  ),
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red, width: 2.0),
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                      borderRadius: BorderRadius.circular(40.0),
+                    ),
+                    hintText: 'Masukkan Ulasan Anda...',
+                    hintStyle: kHintTextStyle,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.redAccent[700],
+                  radius: 25.0,
+                  child: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
+                ),
+              )
+            ],
+          ),
+          // child: Container(
+          //   color: Colors.blue,
+          //   child: TextField(
+          //     keyboardType: TextInputType.text,
+          //     style: TextStyle(
+          //       color: Colors.black87,
+          //       fontFamily: 'OpenSans',
+          //     ),
+          //     decoration: new InputDecoration(
+          //       focusedBorder: OutlineInputBorder(
+          //         borderSide: BorderSide(color: Colors.red, width: 2.0),
+          //         borderRadius: BorderRadius.circular(40.0),
+          //       ),
+          //       enabledBorder: OutlineInputBorder(
+          //         borderSide: BorderSide(color: Colors.grey, width: 1.0),
+          //         borderRadius: BorderRadius.circular(40.0),
+          //       ),
+          //       hintText: 'Masukkan Ulasan Anda...',
+          //       hintStyle: kHintTextStyle,
+          //     ),
+          //   ),
+          // ),
         ),
       ),
     );

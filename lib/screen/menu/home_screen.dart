@@ -37,7 +37,10 @@ final List<Widget> imageSliders = imgList
                 Image.network(
                   item,
                   fit: BoxFit.cover,
-                  width: 1000.0,
+                  // width: 1000.0,
+                  // height: MediaQuery.of(context).size.height * 0.18,
+                  height: 320.0,
+                  width: double.infinity,
                 ),
               ],
             ),
@@ -51,8 +54,6 @@ final List<Widget> imageSliders2 = imgList2
     .map(
       (item) => Container(
         child: Container(
-          height: 180.0,
-          width: 320.0,
           margin: EdgeInsets.all(5.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5.0)),
@@ -160,7 +161,8 @@ class CardHorizontal extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: 15.0),
       child: Container(
-        width: 300.0,
+        // width: 300.0,
+        width: 320.0,
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.grey[300],
@@ -233,9 +235,10 @@ class CardHorizontal2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 15.0),
-      child: Row(
+      child: Stack(
         children: <Widget>[
           Container(
+            // width: 250.0,
             width: 250.0,
             decoration: BoxDecoration(
               border: Border.all(
@@ -248,8 +251,8 @@ class CardHorizontal2 extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Container(
-                  height: 180.0,
-                  width: 250.0,
+                  height: 210.0,
+                  width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(5),
@@ -266,117 +269,157 @@ class CardHorizontal2 extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(text1, style: TextStyle(color: Colors.blue[800])),
+                      FittedBox(
+                          child: Text(text1,
+                              style: TextStyle(color: Colors.blue[800]))),
                       SizedBox(
                         height: 2.0,
                       ),
-                      Text(text2,
-                          style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.w700)),
-                      SizedBox(
-                        height: 2.0,
-                      ),
-                      Text(text3),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text("Mulai dari"),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Text(
-                            text4,
+                      FittedBox(
+                        child: Text(text2,
                             style: TextStyle(
-                                color: Colors.green[800],
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
+                                fontSize: 20.0, fontWeight: FontWeight.w700)),
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 2.0,
                       ),
-                      LinearPercentIndicator(
-                        width: MediaQuery.of(context).size.width - 185,
-                        animation: true,
-                        lineHeight: 15.0,
-                        animationDuration: 4500,
-                        percent: percent,
-                        center: Text(percentText,
-                            style: TextStyle(color: Colors.white)),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: Colors.green[900],
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Text("Sisa waktu :",
-                              style: TextStyle(color: Colors.grey)),
-                          SizedBox(
-                            width: 2.5,
-                          ),
-                          Text(text5, style: TextStyle(color: Colors.grey)),
-                          SizedBox(
-                            width: 1.5,
-                          ),
-                          Text("Hari", style: TextStyle(color: Colors.grey)),
-                          SizedBox(
-                            width: 2.5,
-                          ),
-                          Text("-", style: TextStyle(color: Colors.grey)),
-                          SizedBox(
-                            width: 2.5,
-                          ),
-                          Text(text6, style: TextStyle(color: Colors.grey)),
-                          SizedBox(
-                            width: 1.5,
-                          ),
-                          Text("Investor", style: TextStyle(color: Colors.grey))
-                        ],
-                      ),
+                      FittedBox(child: Text(text3)),
                       SizedBox(
                         height: 15.0,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Wrap(
                         children: <Widget>[
-                          Text(
-                            "Total Pendanaan",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                            ),
+                          FittedBox(child: Text("Mulai dari")),
+                          SizedBox(
+                            width: 4.0,
                           ),
-                          Text(
-                            "Periode Dividen",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
+                          FittedBox(
+                            child: Text(
+                              text4,
+                              style: TextStyle(
+                                  color: Colors.green[800],
+                                  fontWeight: FontWeight.w500),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 1.0,
+                        height: 8.0,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
-                            text7,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            text8,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                            ),
+                          LinearPercentIndicator(
+                            width: 220.0,
+                            animation: true,
+                            lineHeight: 15.0,
+                            animationDuration: 4500,
+                            percent: percent,
+                            center: Text(percentText,
+                                style: TextStyle(color: Colors.white)),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: Colors.green[800],
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        // height: 10.0,
+                        height: 8.0,
+                      ),
+                      Wrap(
+                        children: <Widget>[
+                          FittedBox(
+                            child: Text("Sisa waktu :",
+                                style: TextStyle(color: Colors.grey)),
+                          ),
+                          SizedBox(
+                            width: 3.0,
+                          ),
+                          FittedBox(
+                              child: Text(text5,
+                                  style: TextStyle(color: Colors.grey))),
+                          SizedBox(
+                            width: 3.0,
+                          ),
+                          FittedBox(
+                              child: Text("Hari",
+                                  style: TextStyle(color: Colors.grey))),
+                          SizedBox(
+                            width: 3.0,
+                          ),
+                          FittedBox(
+                              child: Text("-",
+                                  style: TextStyle(color: Colors.grey))),
+                          SizedBox(
+                            width: 3.0,
+                          ),
+                          FittedBox(
+                              child: Text(text6,
+                                  style: TextStyle(color: Colors.grey))),
+                          SizedBox(
+                            width: 3.0,
+                          ),
+                          FittedBox(
+                              child: Text("Investor",
+                                  style: TextStyle(color: Colors.grey)))
+                        ],
+                      ),
+                      SizedBox(
+                        height: 12.0,
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  FittedBox(
+                                    child: Text(
+                                      "Total Pendanaan",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                  FittedBox(
+                                    child: Text(
+                                      text7,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 4,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  FittedBox(
+                                    child: Text(
+                                      "Periode Deviden",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                  FittedBox(
+                                    child: Text(
+                                      text8,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -405,6 +448,7 @@ class HomeScreen extends StatelessWidget {
                       autoPlay: true,
                       aspectRatio: 2.0,
                       enlargeCenterPage: false,
+                      height: 320.0,
                     ),
                     items: imageSliders,
                   ),
@@ -432,7 +476,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Container(
                 height: 35.0,
-                width: 350.0,
+                width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -475,7 +519,9 @@ class HomeScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 20.0),
               child: Container(
+                // height: 200.0,
                 height: 200.0,
+                // width: MediaQuery.of(context).size.width * 0.1,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -503,202 +549,206 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 3,
-                    blurRadius: 9,
-                    offset: Offset(0, 0), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25.0, top: 15.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(40.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border(
-                                right: BorderSide(
-                                  //                   <--- left side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
-                                ),
-                                bottom: BorderSide(
-                                  //                    <--- top side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 3,
+                      blurRadius: 9,
+                      offset: Offset(0, 0), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, top: 15.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(40.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border(
+                                  right: BorderSide(
+                                    //                   <--- left side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
+                                  bottom: BorderSide(
+                                    //                    <--- top side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "7 Menit",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.redAccent[700],
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 3.0,
-                                ),
-                                Text(
-                                  "Rekor Sold",
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "7 Menit",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.redAccent[700],
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Text(
+                                    "Rekor Sold",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(right: 25.0, top: 15.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(40.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border(
-                                left: BorderSide(
-                                  //                   <--- left side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
-                                ),
-                                bottom: BorderSide(
-                                  //                    <--- top side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(right: 25.0, top: 15.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(40.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border(
+                                  left: BorderSide(
+                                    //                   <--- left side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
+                                  bottom: BorderSide(
+                                    //                    <--- top side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "50",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.redAccent[700],
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 3.0,
-                                ),
-                                Text(
-                                  "Bisnis Terdaftar",
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "50",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.redAccent[700],
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Text(
+                                    "Bisnis Terdaftar",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 25.0, bottom: 15.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(40.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border(
-                                right: BorderSide(
-                                  //                   <--- left side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
-                                ),
-                                top: BorderSide(
-                                  //                    <--- top side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: 25.0, bottom: 15.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(40.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border(
+                                  right: BorderSide(
+                                    //                   <--- left side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
+                                  top: BorderSide(
+                                    //                    <--- top side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "6+ Rb",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.redAccent[700],
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 3.0,
-                                ),
-                                Text(
-                                  "Bisnis Mendaftar",
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "6+ Rb",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.redAccent[700],
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Text(
+                                    "Bisnis Mendaftar",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(right: 25.0, bottom: 15.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(40.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border(
-                                left: BorderSide(
-                                  //                   <--- left side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
-                                ),
-                                top: BorderSide(
-                                  //                    <--- top side
-                                  color: Colors.grey[300],
-                                  width: 0.5,
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                right: 25.0, bottom: 15.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(40.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border(
+                                  left: BorderSide(
+                                    //                   <--- left side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
+                                  top: BorderSide(
+                                    //                    <--- top side
+                                    color: Colors.grey[300],
+                                    width: 0.5,
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                Text(
-                                  "183+ Rb",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.redAccent[700],
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 3.0,
-                                ),
-                                Text(
-                                  "Member Pemodal",
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                    "183+ Rb",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.redAccent[700],
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 3.0,
+                                  ),
+                                  Text(
+                                    "Member Pemodal",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -728,7 +778,8 @@ class HomeScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 20.0),
               child: Container(
-                height: 370.0,
+                // height: 370.0,
+                height: 400.0,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -808,8 +859,10 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         flex: 3,
                         child: Container(
-                          height: 150.0,
-                          width: 100.0,
+                          // height: 150.0,
+                          // width: 100.0,
+                          height: 148.0,
+                          width: 70.0,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.grey[300],
@@ -957,8 +1010,10 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         flex: 3,
                         child: Container(
-                          height: 150.0,
-                          width: 100.0,
+                          // height: 150.0,
+                          // width: 100.0,
+                          height: 148.0,
+                          width: 70.0,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.grey[300],
@@ -1106,8 +1161,10 @@ class HomeScreen extends StatelessWidget {
                       Expanded(
                         flex: 3,
                         child: Container(
-                          height: 150.0,
-                          width: 100.0,
+                          // height: 150.0,
+                          // width: 100.0,
+                          height: 148.0,
+                          width: 70.0,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.grey[300],
@@ -1259,6 +1316,9 @@ class HomeScreen extends StatelessWidget {
                       autoPlay: true,
                       aspectRatio: 2.0,
                       enlargeCenterPage: false,
+                      autoPlayInterval: Duration(seconds: 10),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      height: 230.0,
                     ),
                     items: imageSliders2,
                   ),
@@ -1297,8 +1357,10 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Container(
+                // height: 40.0,
+                // width: 350.0,
                 height: 40.0,
-                width: 350.0,
+                width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   color: Colors.green,
                   borderRadius: BorderRadius.circular(8),
@@ -1322,28 +1384,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(bottom: 20.0),
-            //   child: Container(
-            //     height: 130.0,
-            //     width: 350.0,
-            //     decoration: BoxDecoration(
-            //       color: Colors.green,
-            //       borderRadius: BorderRadius.circular(8),
-            //     ),
-            //     child: Wrap(
-            //       children: <Widget>[
-            //         Text(
-            //           'WhatsApp WhatsAppWhatsAppWhatsAppWhatsApp WhatsApp WhatsApp WhatsApp WhatsApp WhatsApp WhatsApp WhatsApp WhatsApp WhatsAppWhatsApp v WhatsApp WhatsAppWhatsAppWhatsApp',
-            //           textAlign: TextAlign.justify, style: TextStyle(
-            //             color: Colors.white,
-            //             fontSize: 15.0,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

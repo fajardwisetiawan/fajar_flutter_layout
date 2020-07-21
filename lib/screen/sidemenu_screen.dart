@@ -10,39 +10,53 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           _createHeader(),
           _createDrawerItem(
-            icon: Icons.home,
-            text: 'Home',
+            icon: Icons.info,
+            text: 'Tentang Modal Saham',
           ),
           _createDrawerItem(
-            icon: Icons.play_circle_outline,
-            text: 'Live News',
+            icon: Icons.settings,
+            text: 'Cara Investasi',
           ),
           _createDrawerItem(
-            icon: Icons.favorite_border,
-            text: 'Favorites',
+            icon: Icons.new_releases,
+            text: 'Berita Santara',
           ),
           _createDrawerItem(
-            icon: Icons.person,
-            text: 'Profile',
+            icon: Icons.help,
+            text: 'Syarat & Ketentuan Pemodal',
           ),
-          Divider(color: Colors.black45, thickness: 0.5,),
-          _createDrawerItem(
-            icon: Icons.info_outline,
-            text: 'About',
+          Divider(
+            color: Colors.black45,
+            thickness: 0.5,
           ),
           _createDrawerItem(
-            icon: Icons.face,
-            text: 'Autors',
+            icon: Icons.view_list,
+            text: 'Syarat & Ketentuan Penerbit',
           ),
-          Divider(color: Colors.black45, thickness: 0.5,),
           _createDrawerItem(
-            icon: Icons.edit,
+            icon: Icons.view_list,
+            text: 'Kebijakan & Privasi',
+          ),
+          Divider(
+            color: Colors.black45,
+            thickness: 0.5,
+          ),
+          _createDrawerItem(
+            icon: Icons.security,
+            text: 'Disclaimer',
+          ),
+          _createDrawerItem(
+            icon: Icons.insert_drive_file,
+            text: 'Info App',
+          ),
+          _createDrawerItem(
+            icon: Icons.info,
             text: 'Edit Profile',
           ),
           _createDrawerItem(
             icon: Icons.input,
             text: 'Logout',
-          ),          
+          ),
           ListTile(
             title: Text('Version 0.0.1'),
             onTap: () {},
@@ -54,30 +68,51 @@ class NavDrawer extends StatelessWidget {
 
   Widget _createHeader() {
     return DrawerHeader(
-        margin: EdgeInsets.zero,
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Colors.purple[900],
-            Colors.purple[700],
-            Colors.purple[400],
-            Colors.purple[300]
+      margin: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
+      decoration: BoxDecoration(color: Colors.redAccent[700]),
+      child: Stack(children: <Widget>[
+        Row(
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/list1.jpg"),
+                    radius: 40.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Fajar Dwi Setiawan",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        "fajardwisetiawan19@gmail.com",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
-          stops: [0.1, 0.4, 0.7, 0.9],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )),
-        child: Stack(children: <Widget>[
-          Positioned(
-              bottom: 12.0,
-              left: 16.0,
-              child: Text("Side Menu",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500))),
-        ]));
+        ),
+      ]),
+    );
   }
 
   Widget _createDrawerItem(
@@ -85,10 +120,10 @@ class NavDrawer extends StatelessWidget {
     return ListTile(
       title: Row(
         children: <Widget>[
-          Icon(icon),
+          Icon(icon, color: Colors.grey),
           Padding(
             padding: EdgeInsets.only(left: 8.0),
-            child: Text(text),
+            child: Text(text, style: TextStyle(fontWeight: FontWeight.w400)),
           )
         ],
       ),
